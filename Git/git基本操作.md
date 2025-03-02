@@ -98,3 +98,4 @@ git push -u origin master
 # git push origin master
 ```
 
+# main和master的分支问题
