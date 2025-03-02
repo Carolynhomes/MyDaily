@@ -1,0 +1,2 @@
+# Daily Life
+JUST FOR A RECORD FOR MYSELF
