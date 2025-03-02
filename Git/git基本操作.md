@@ -99,3 +99,70 @@ git push -u origin master
 ```
 
 # main和master的分支问题
+
+1. 创建一个 main分支
+
+```bash
+git checkout -b main
+```
+
+
+
+2. 删除本地的 master分支
+
+```bash
+git branch -D master
+```
+
+
+
+3. 删除 github 仓库里的 master 分支
+
+```bash
+git push origin --delete master
+```
+
+
+
+4. 然后进行  git add commit push 
+
+> [!important]
+>
+> 然后你进行 git add commit push 的时候，会出现下面问题：
+>
+> ```bash
+> git add .
+> git commit -m "descriptions"
+> git push -u origin main
+> ```
+>
+> 
+>
+> ```
+> fatal: refusing to merge unrelated histories
+> ```
+>
+> 此时会出现问题，因为本地 `main` 分支和远程 `main` 分支的历史记录没有共同的基础。Git 拒绝自动合并它们。
+>
+> 像这样：
+>
+> - 本地仓库和远程仓库是分开初始化的（例如，您在本地仓库中已有提交，而远程仓库也有自己的提交）。
+> - 您刚开始使用 GitHub 时，远程仓库已经有内容，而本地仓库是全新的，或者本地与远程的历史完全不同。
+
+
+
+**解决办法：**
+
+**允许合并不相关的历史**： 您可以通过使用 `--allow-unrelated-histories` 选项来强制 Git 允许合并不相关的历史：
+
+```bash
+git pull origin main --allow-unrelated-histories
+# 这将强制 Git 合并远程 main 分支与本地 main 分支，尽管它们没有共同的提交历史。
+
+# 然后可能会让你记录一下commit
+# 此时 按 i 进入 插入模式，随便输入点东西，告诉他你为什么进行合并
+# 然后  点  ESC ，然后按 : 号，输入wq，即可保存退出 
+```
+
+之后 问题解决，只有一个main分支了
+
