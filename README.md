@@ -1,2 +1,2 @@
-# Weblog
-犬小哈项目跟练
+# Daily Life
+JUST FOR A RECORD FOR MYSELF
