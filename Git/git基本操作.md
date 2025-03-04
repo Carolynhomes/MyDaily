@@ -1,4 +1,4 @@
-# 在本地编辑文件并同步到GitHub
+# 1 在本地编辑文件并同步到GitHub
 
 1. 配置一下用户名和邮箱
 
@@ -98,7 +98,7 @@ git push -u origin master
 # git push origin master
 ```
 
-# main和master的分支问题
+# 2 main和master的分支问题
 
 1. 创建一个 main分支
 
@@ -165,4 +165,45 @@ git pull origin main --allow-unrelated-histories
 ```
 
 之后 问题解决，只有一个main分支了
+
+# 3 代码提交和同步命令
+
+流程图：
+
+![9b5c53912abf93cd453d31b0cfee6d87](git基本操作.assets/9b5c53912abf93cd453d31b0cfee6d87.png)
+
+第0步:工作区与仓库保持一致
+
+​	这如果不一样的话，参考上面2中的某个报错
+
+第1步: 文件增删改，变为已修改状态
+
+
+
+第2步: `git add` ，变为已暂存状态
+
+```bash
+git status
+git add --all # 当前项目下的所有更改
+git add .  # 当前目录下的所有更改（多）
+git add xx/xx.py xx/xx2.py  # 添加某几个文件
+```
+
+第3步：`git commit` 变为已提交状态
+
+```bash
+git commit -m "描述信息"
+```
+
+第4步：`git push` 变为已推送状态
+
+```bash
+git push -u origin main # 第一次需要关联上
+git push # 之后再推送就不用指明应该推送的远程分支了
+
+git branch # 可以查看本地仓库的分支
+git branch -a # 可以查看本地仓库和本地远程仓库(远程仓库的本地镜像)的所有分支
+```
+
+
 
